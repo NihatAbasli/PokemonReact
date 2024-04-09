@@ -27,16 +27,33 @@ function App() {
     setSecondTeam(newSecondTeam);
   };
 
+  const team1Power = firstTeam.reduce(
+    (sum, item) => sum + item.base_experience,
+    0
+  );
+  const team2Power = secondTeam.reduce(
+    (sum, item) => sum + item.base_experience,
+    0
+  );
+
   return (
     <>
       <PokeHead
         sayHello={handleStart}
         buttonTitle={secondTeam.length ? "Check" : "Start"}
       />
-      {secondTeam.length && (
+      {!!secondTeam.length && (
         <>
-          <PokedexContent isWinner={true} power={200} pokemons={firstTeam} />
-          <PokedexContent isWinner={true} power={200} pokemons={secondTeam} />
+          <PokedexContent
+            isWinner={team1Power > team2Power}
+            power={team1Power}
+            pokemons={firstTeam}
+          />
+          <PokedexContent
+            isWinner={team2Power > team1Power}
+            power={team2Power}
+            pokemons={secondTeam}
+          />
         </>
       )}
     </>
