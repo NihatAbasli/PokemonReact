@@ -1,0 +1,20 @@
+.container {
+  padding: 0 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title_winner {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.title_power {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
